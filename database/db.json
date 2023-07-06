@@ -1,0 +1,29 @@
+{
+  "escolas": [
+    {
+      "id": "abc",
+      "nome": "Escola ABC",
+      "endereco": "Rua ABC, 123",
+      "telefone": "1234-5678"
+    },
+    {
+      "id": "def",
+      "nome": "Escola DEF",
+      "endereco": "Rua DEF, 456",
+      "telefone": "1234-5678"
+    },
+    {
+      "id": "ghi",
+      "nome": "Escola GHI",
+      "endereco": "Rua GHI, 789",
+      "telefone": "1234-5678"
+    }
+  ],
+  "parques": [
+    {
+      "id": "abc",
+      "nome": "Parque ABC",
+      "endereco": "Rua ABC, 123"
+    }
+  ]
+}

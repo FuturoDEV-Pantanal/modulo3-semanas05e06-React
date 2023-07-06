@@ -1,21 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import ListaDeEscolas from "../../components/ListaDeEscolas/ListaDeEscolas";
+import CadastroDeEscola from "../../components/CadastroDeEscola/CadastroDeEscola";
 
 function Escolas() {
-  const [escolas, setEscolas] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3003/escolas")
-      .then((res) => res.json())
-      .then((res) => setEscolas(res));
-  }, [])
+  const [apareceLista, setApareceLista] = useState(true);
 
   return (
     <>
-      <ul>
-        {escolas.map((escola) => (
-          <li key={escola.id}>{escola.nome}</li>
-        ))}
-      </ul>
+      {apareceLista === true && (
+        <ListaDeEscolas setApareceLista={setApareceLista} />
+      )}
+
+      {apareceLista === false && (
+        <CadastroDeEscola setApareceLista={setApareceLista} />
+      )}
     </>
   );
 }

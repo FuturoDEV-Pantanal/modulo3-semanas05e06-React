@@ -17,6 +17,12 @@
       "nome": "Escola GHI",
       "endereco": "Rua GHI, 789",
       "telefone": "1234-5678"
+    },
+    {
+      "nome": "Escola D",
+      "endereco": "Rua D",
+      "telefone": "1234",
+      "id": "AMyCZeU"
     }
   ],
   "parques": [

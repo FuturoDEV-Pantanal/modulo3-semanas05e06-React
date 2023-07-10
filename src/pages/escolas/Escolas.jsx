@@ -1,18 +1,18 @@
 import { useState } from "react";
-import ListaDeEscolas from "../../components/ListaDeEscolas/ListaDeEscolas";
-import CadastroDeEscola from "../../components/CadastroDeEscola/CadastroDeEscola";
+import ListaDeEscolas from "../../components/listaDeEscolas/ListaDeEscolas";
+import CadastroDeEscolas from "../../components/cadastroDeEscolas/CadastroDeEscolas";
 
 function Escolas() {
-  const [apareceLista, setApareceLista] = useState(true);
+  const [apareceCadastro, setApareceCadastro] = useState(false);
 
   return (
     <>
-      {apareceLista === true && (
-        <ListaDeEscolas setApareceLista={setApareceLista} />
+      {!apareceCadastro && (
+        <ListaDeEscolas setApareceCadastro={setApareceCadastro} />
       )}
 
-      {apareceLista === false && (
-        <CadastroDeEscola setApareceLista={setApareceLista} />
+      {apareceCadastro && (
+        <CadastroDeEscolas setApareceCadastro={setApareceCadastro}/>
       )}
     </>
   );

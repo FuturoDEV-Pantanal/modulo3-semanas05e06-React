@@ -1,13 +1,5 @@
 import { useState } from "react";
-
-/*
-{
-  "id": "abc",
-  "nome": "Escola ABC",
-  "endereco": "Rua ABC, 123",
-  "telefone": "1234-5678"
-}
-*/
+import { api } from "../../utils";
 
 export default function CadastroDeEscolas({ setApareceCadastro }) {
   const escolaVazia = {
@@ -18,11 +10,23 @@ export default function CadastroDeEscolas({ setApareceCadastro }) {
   const [escola, setEscola] = useState(escolaVazia);
   console.log({ escola });
 
+  const cadastrarEscola = (evento) => {
+    evento.preventDefault();
+
+    fetch(`${api}/escolas`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(escola),
+    }).then(() => setApareceCadastro(false));
+  };
+
   return (
     <div>
       <h2>Cadastro de Escolas</h2>
 
-      <form onSubmit={() => setApareceCadastro(false)}>
+      <form onSubmit={cadastrarEscola}>
         <input
           type="text"
           placeholder="Nome da escola"
@@ -45,7 +49,9 @@ export default function CadastroDeEscolas({ setApareceCadastro }) {
           type="text"
           placeholder="Telefone"
           value={escola.telefone}
-          onChange={(evento) => setEscola({ ...escola, telefone: evento.target.value })}
+          onChange={(evento) =>
+            setEscola({ ...escola, telefone: evento.target.value })
+          }
         />
 
         <button type="submit">Salvar escola</button>

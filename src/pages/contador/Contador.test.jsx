@@ -31,11 +31,10 @@ describe("Contador", () => {
     render(<Contador />);
 
     const botao = screen.getByRole("button", { name: "Contador: 0" });
-    usuario.click(botao);
 
-    const botaoClicado = await screen.findByRole("button", {
-      name: "Contador: 1",
-    });
+    await usuario.click(botao);
+
+    const botaoClicado = screen.getByRole("button", { name: "Contador: 1" });
     expect(botaoClicado).toBeInTheDocument();
   });
 });
